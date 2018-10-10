@@ -7,12 +7,14 @@ var markers = []
 /**register sw*/
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
-    navigator.serviceWorker.register('sw.js').then(function (registration) {
-      console.log('ServiceWorker registration successful with scope: ', registration.scope);
-    }, function (err) {
-      console.log('ServiceWorker registration failed: ', err);
+    navigator.serviceWorker.register('sw.js')
+    .then(registration =>{
+      console.log('ServiceWorker registration successful with scope: '+ registration.scope);
+    })
+    .catch(err => {
+      console.log('ServiceWorker registration failed: ' + err);
     });
-  });
+});
 }
 
 /**
@@ -186,9 +188,12 @@ createRestaurantHTML = (restaurant) => {
   address.innerHTML = restaurant.address;
   li.append(address);
 
-  const more = document.createElement('a');
+  const more = document.createElement('button');
   more.innerHTML = 'View Details';
-  more.href = DBHelper.urlForRestaurant(restaurant);
+  more.onclick = function(){
+    const url = DBHelper.urlForRestaurant(restaurant);
+    window.location=url;
+  }
   more.tabIndex='3';
   li.append(more)
 

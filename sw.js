@@ -1,4 +1,4 @@
-console.log('Service Worker: Registered');
+
 
 var CACHE_NAME = 'restaurant-cache';
 const cacheFiles= [
