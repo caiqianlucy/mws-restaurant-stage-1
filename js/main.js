@@ -6,7 +6,7 @@ var markers = []
 
 /**register sw*/
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
+  window.addEventListener('load', () => {
     navigator.serviceWorker.register('sw.js')
     .then(registration =>{
       console.log('ServiceWorker registration successful with scope: '+ registration.scope);
@@ -174,6 +174,7 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + ' Image';
   li.append(image);
 
   const name = document.createElement('h1');
@@ -190,6 +191,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('button');
   more.innerHTML = 'View Details';
+  more.setAttribute('aria-label', 'View Details for ' + restaurant.name);
   more.onclick = function(){
     const url = DBHelper.urlForRestaurant(restaurant);
     window.location=url;
