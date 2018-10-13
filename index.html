@@ -16,14 +16,14 @@
 <body>
   <header>
     <nav>
-      <h1><a aria-label='home' tabindex="1" href="/">Restaurant Reviews</a></h1>
+      <h1><a aria-label='home' href="/">Restaurant Reviews</a></h1>
     </nav>
   </header>
 
 
 
   <main id="maincontent">
-    <section id="map-container">
+    <section id="map-container"  role="application">
       <div id='map'></div>
       <script>
       mapboxgl.accessToken = 'pk.eyJ1IjoiY2FpcWlhbmx1Y3kiLCJhIjoiY2psb2V0YmZsMXQ2NzN3czZjenpna25kOSJ9.HfH7RcNRiArP_7qs1jZFGQ';
@@ -36,10 +36,10 @@
     <section>
       <div class="filter-options">
         <h2>Filter Results</h2>
-        <select role="tablist" tabindex="2" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-labelledby="neighborhoods-label">
+        <select role="tablist" id="neighborhoods-select" name="neighborhoods" onchange="updateRestaurants()" aria-labelledby="neighborhoods-label">
           <option value="all">All Neighborhoods</option>
         </select>
-        <select role="tablist" tabindex="2" id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-labelledby="cuisines-label">
+        <select role="tablist" id="cuisines-select" name="cuisines" onchange="updateRestaurants()" aria-labelledby="cuisines-label">
           <option value="all">All Cuisines</option>
         </select>
       </div>
